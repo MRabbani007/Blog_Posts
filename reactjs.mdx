@@ -1,0 +1,210 @@
+---
+title: 'React JS'
+date: '2024-05-03'
+tags: ['react','angular','vue']
+sortIndex: 05
+topic: 'blog'
+---
+
+# ReactJS
+
+ReactJS is a JavaScript library used to build reusable components for the view layer in the MVC architecture. It is highly efficient and uses a virtual DOM to render components. It works on the client side and is written in JSX.
+
+## React building blocks
+
+Below are the five main building blocks of React
+
+### 1 Components
+Components are reusable blocks of code that return HTML. Components split the user interface into independent, reusable parts that can be processed separately. A single app usually consists of multiple components.
+
+### 2 JSX - JavaScript XML
+JSX is a syntax extension to JavaScript used with React to describe the user interface. 
+By using JSX, we can write HTML structures in the same file that contains JavaScript code.
+
+Web browsers cannot read JSX directly. The JSX file is transpiled into JS using Babel.
+
+### 3 Props and State
+
+Props are like function parameters used to pass data from one component to another
+State, similar to variables, is the data storage that is local to the component only.
+
+### 4 Context
+
+Context facilitates data storage on the client side and allows data to be passed through components as props in a hierarchy.
+
+### 5 Virtual DOM
+
+The Virtual DOM is a lightweight copy of the actual DOM which makes DOM manipulation easier. Manipulating DOM is slow, but manipulating Virtual DOM is fast as nothing gets drawn on the screen. When the state of an object changes, the virtual DOM gets updated first, then virtual DOM changes only that object in the real DOM, rather than updating all the objects.
+
+## React Architecture
+
+### Components
+
+Functional Components: Functional components are simply javascript functions. We can create a functional component in React by writing a javascript function. 
+Class Components: The class components are a little more complex than the functional components. The functional components are not aware of the other components in your program whereas the class components can work with each other. We can pass data from one class component to another class component.
+
+A React Component can go through four stages of its life as follows. 
+1. Initialization: This is the stage where the component is constructed with the given Props and default state. This is done in the constructor of a Component Class.
+2. Mounting: Mounting is the stage of rendering the JSX returned by the render method itself.
+3. Updating: Updating is the stage when the state of a component is updated and the application is repainted.
+4. Unmounting: As the name suggests Unmounting is the final step of the component lifecycle where the component is removed from the page.
+
+### State
+
+The setState() method is used to change the state object. It ensures that the component has been updated and calls for re-rendering of the component. The state object of a component may contain multiple attributes and React allows using setState() function to update only a subset of those attributes as well as using multiple setState() methods to update each attribute value independently.
+
+```
+import {useState} from 'react'
+
+const [name, setName] = useState("ReactJS")
+```
+
+### Data Binding
+
+ReactJS uses one-way data binding which can be Component to View or View to Component. It is also known as one-way data flow, which means the data has one, and only one way to be transferred to other parts of the application. In essence, this means child components are not able to update the data that is coming from the parent component. It is easy to debug and less prone to errors.
+
+### Conditional Rendering
+
+Conditional rendering in React involves selectively rendering components based on specified conditions. By evaluating these conditions, developers can control which components are displayed, allowing for dynamic and responsive user interfaces in React applications.
+
+```
+{isLoggedIn == false ? <DisplayLoggedOut /> : <DisplayLoggedIn />}
+```
+
+Here if the boolean isLoggedIn is false then the DisplayLoggedOut component will be rendered otherwise DisplayLoggedIn component will be rendered.
+
+### React Router
+
+React Router is a standard library for routing in React. It enables the navigation among views of various components in a React Application, allows changing the browser URL, and keeps the UI in sync with the URL.
+
+The main components of a react-router are:
+
+1. Router(usually imported as BrowserRouter):  It is the parent component that is used to store all of the other components. Everything within this will be part of the routing functionality
+2. Route: This component checks the current URL and displays the component associated with that exact path. 
+3. Link: The Link component is used to create links to different routes.
+
+### React Hooks
+
+Hooks are a new addition in React 16.8. They let developers use state and other React features without writing a class. Hooks provide a direct API to react concepts such as props, state, context, refs and life-cycle
+
+*Important:* useState, useEffect, useContext, useReducer, useMemo, useRef, useCallback
+
+1. useState: used for local data storage
+2. useEffect
+The useEffect hook in React eliminates the side effect of using class based components. It is used as an alternative to componentDidUpdate() method. It allows you to handle lifecycle events and perform actions such as fetching data, subscribing to events, or manipulating the DOM.
+The useEffect hook accepts two arguments where the second argument is optional. 
+
+```
+useEffect(function, dependency)
+```
+
+The dependency decides when the component will be updated again after rendering. Leaving the dependency array empty will trigger a re-render on each change in the state of the components
+
+```
+import {useEffect} from 'react'
+
+useEffect(()=>{
+  console.log(name)
+},[name])
+```
+
+3. useRef: used to access the DOM element and the React element. They are used in cases where we want to read or change the value of a child component
+
+4. useContext: Allows you to consume context in functional components.
+
+5. useReducer: Alternative to useState for managing more complex state logic. It accepts a reducer function and an initial state, returning the current state and a dispatch function to trigger state updates.
+
+6. useMemo: The useMemo hook is used to memoize the result of a function. It takes a function and an array of dependencies and returns a memoized value. This is particularly useful when you have expensive computations or calculations that you want to avoid repeating unnecessarily.
+
+useCallback: The useCallback hook is used to memoize callbacks. It takes a callback function and an array of dependencies and returns a memoized callback. This is beneficial in scenarios where passing callbacks to child components might cause unnecessary re-renders.
+
+```
+import React, { useState, useCallback } from 'react';
+
+function ParentComponent() {
+  const [count, setCount] = useState(0);
+
+  const handleClick = useCallback(() => {
+    setCount(count + 1);
+  }, [count]); // Dependency array
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <ChildComponent handleClick={handleClick} />
+    </div>
+  );
+}
+
+function ChildComponent({ handleClick }) {
+  return <button onClick={handleClick}>Increment</button>;
+}
+```
+
+#### Custom Hooks
+
+Custom hooks are normal JavaScript functions whose names start with “use” and they may call other hooks. We use custom hooks to maintain the DRY concept - Don’t Repeat Yourself. It helps us to write a logic once and use it anywhere in the code.
+
+### React Fragments
+
+React components can render 1 root element, when a component has more than 1 child elements, they need to be wrapped in a container (div for example) which creates an unnecessary block in the DOM. Instead, fragments can be used to wrap more than 1 child elements
+
+```
+<React.Fragment>
+    <h2>Child-1</h2>   
+    <p> Child-2</p>   
+</React.Fragment>
+```
+or
+```
+<>
+  <h2>Child-1</h2>   
+  <p> Child-2</p>   
+</>
+
+### Data Fetching
+
+Fetching data from the backend/server using CRUD operations
+
+1. Axios
+2. fetch
+
+### Higher Order Components - HOC
+Higher-order components (HOCs) are a pattern in React that allows you to reuse component logic by wrapping components with other components.
+
+### Controlled Components
+Controlled Components:
+- State is managed by React through props.
+- Values and changes are handled through props and event handlers.
+- Provides a single source of truth.
+- Examples: input fields, checkboxes, select dropdowns.
+
+Uncontrolled Components:
+- State is managed internally by the DOM.
+- Values and changes are accessed directly from the DOM using techniques like `ref`.
+- Offers more flexibility and direct access to the DOM.
+- Examples: file inputs, certain form fields.
+
+### Callback functions
+A callback function is a function that is passed as an argument to another function and is intended to be called or executed at a later point in time. It allows for communication between different components in React.
+
+Used as event handlers to respond to user interactions.
+They enable communication between parent and child components.
+Handle the results of asynchronous operations.
+Conditional rendering of components or elements.
+
+## Installing React
+
+1. Install NodeJS
+2. Install the create-react-app 
+```
+npm i create-react-app -g
+```
+3. Create the app
+```
+npm create-react-app <app-name>
+```
+4. Start the app
+```
+npm start
+```

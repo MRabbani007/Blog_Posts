@@ -1,0 +1,34 @@
+---
+title: 'HTTP Status Codes'
+date: '2024-05-03'
+tags: ['tailwind','sass','css']
+sortIndex: 05
+topic: 'blog'
+---
+
+# HTTP Status Codes 
+
+## 200 - Success, 
+
+1. 200 - Success, expect data in body
+2. 201 - 
+3. 202 -
+4. 203 -
+5. 204 - Operation successful, no data returned
+
+## 300 Redirects
+
+## 400 - Failed / Error
+
+1. 400 - Bad Request
+2. 401 -
+3. 402 - 
+3. 403 - Unauthorized
+3. 404 - Page Not Found
+4. 409 - Conflict
+
+The request could not be completed due to a conflict with the current state of the resource. This code is only allowed in situations where it is expected that the user might be able to resolve the conflict and resubmit the request. The response body SHOULD include enough information for the user to recognize the source of the conflict. Ideally, the response entity would include enough information for the user or user agent to fix the problem; however, that might not be possible and is not required.
+
+Conflicts are most likely to occur in response to a PUT request. For example, if versioning were being used and the entity being PUT included changes to a resource which conflict with those made by an earlier (third-party) request, the server might use the 409 response to indicate that it can't complete the request. In this case, the response entity would likely contain a list of the differences between the two versions in a format defined by the response Content-Type.
+
+## 500 - Server Error

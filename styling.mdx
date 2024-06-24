@@ -1,27 +1,94 @@
 ---
-title: 'Website Styling Tools'
+title: 'Styling Tools'
 date: '2024-05-03'
 tags: ['tailwind','sass','css']
 sortIndex: 05
+topic: 'blog'
 ---
 
 # Tailwind, Sass and CSS 
 
 ## CSS
 
+CSS is the standard styling language used to describe the presentation of a document written in HTML. It allows developers to control the layout, typography, colors, and other visual aspects of a web page. CSS files consist of selectors, properties, and values, defining how elements should be styled.
+
+## Pros
+
 CSS is enough to style a website, set defaults and add global styles to HTML semantic elements, 
 
-Use classes to style particular items in the page, 
+### Cons
 
-## Sass
+Overlaping class names and naming problems, repetition
+
+### In Short
+
+It’s easy and effective, but as your website grows, managing all your styles can become a puzzle.
+
+### When to Stick with CSS
+
+For simple projects without much styling complexity.
+If you’re new to web development and want to grasp the basics first.
+
+## Sass (Syntactically Awesome Style Sheets)
+
+Sass is a preprocessor scripting language that extends the capabilities of CSS. It provides a range of additional features and functionality that streamline the development process and make stylesheets more maintainable. Sass files use the .scss or .sass extension and must be compiled into CSS before they can be used in a web page.
 
 Sass will come in handy as the website grows, organize styles into files, use mixins to reduce repition, and type things faster, the compiler puts everything in place and generates a single CSS file for the website
 
+### Key Benefits of Sass
+
+#### Variables
+
+Sass allows developers to define variables to store reusable values such as colors, font sizes, or margin values. This enables consistency and makes it easier to update styles across an entire project by modifying a single variable.
+
+#### Nesting
+
+Sass enables developers to nest selectors within one another, providing a more organized and readable structure. This simplifies the process of targeting nested elements and reduces the repetition of code.
+
+#### Mixins
+
+Sass allows the creation of mixins, which are reusable blocks of CSS declarations. Mixins can accept arguments and generate dynamic styles based on those arguments. This promotes code reuse and helps to avoid repetitive styles.
+
+```@mixin flexbox-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  @include flexbox-center;
+}```
+
+### When to Choose Sass:
+
+For larger projects with many styles to manage.
+When you want to organize styles better.
+If you love reusing styles and making changes in one place.
+
 ## Tailwind
+
+Tailwind CSS is a utility-first CSS framework that provides a set of low-level CSS utility classes that can be used to build any design, without any limitations. It gives you the building blocks you need to create custom designs without writing any custom CSS.
+
+### Pros of tailwind
+
+1. Speed: Tailwind CSS can help you write CSS faster, especially for complex layouts.
 
 Tailwind provides a huge and flexible set of classes that allows inline styling with the code, it helps build a site very fast.
 
-Drawbacks: it is not scalable! as the site grows, styles will repeat in many components, so using SASS will be a better decision to remove repetition and implementing uniform styles accross many components
+2. Consistency: Tailwind CSS can help you create more consistent designs across your team.
+
+3. Flexibility: Tailwind CSS is very flexible and can be used to create any kind of design, from simple to complex.
+
+4. Maintainability: Tailwind CSS code is generally easier to maintain and update than traditional CSS code.
+
+### Drawbacks: 
+
+1. File size: Tailwind CSS can increase the file size of your CSS, but this can be mitigated with minification and gzip compression.
+
+2. Code-readability: TailwindCSS harms the readability of HTML and JSX files as long classNames hinder the clean code that is present if HTML and CSS files are separated.
+
+3. It is not scalable! as the site grows, styles will repeat in many components, so using SASS will be a better decision to remove repetition and implementing uniform styles accross many components
 
 ## Modules
 
