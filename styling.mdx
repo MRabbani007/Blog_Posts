@@ -48,7 +48,8 @@ Sass enables developers to nest selectors within one another, providing a more o
 
 Sass allows the creation of mixins, which are reusable blocks of CSS declarations. Mixins can accept arguments and generate dynamic styles based on those arguments. This promotes code reuse and helps to avoid repetitive styles.
 
-```@mixin flexbox-center($direction: row) {
+```
+@mixin flexbox-center($direction: row) {
   display: flex;
   flex-direction: $direction;
   justify-content: center;
@@ -57,7 +58,8 @@ Sass allows the creation of mixins, which are reusable blocks of CSS declaration
 
 .container {
   @include flexbox-center;
-}```
+}
+```
 
 ### When to Choose Sass:
 

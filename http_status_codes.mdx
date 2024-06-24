@@ -8,27 +8,59 @@ topic: 'blog'
 
 # HTTP Status Codes 
 
-## 200 - Success, 
+## 100-199: Informational Responses
 
-1. 200 - Success, expect data in body
-2. 201 - 
-3. 202 -
-4. 203 -
-5. 204 - Operation successful, no data returned
+## 200-299: Successful Responses 
 
-## 300 Redirects
+**200 - OK / Success, expect data in body**
 
-## 400 - Failed / Error
+The request succeeded, expect data in body
 
-1. 400 - Bad Request
-2. 401 -
-3. 402 - 
-3. 403 - Unauthorized
-3. 404 - Page Not Found
-4. 409 - Conflict
+**201 - Created**
+
+The request succeeded, and a new resource was created as a result.
+
+**202 - Accepted**
+
+The request has been received but not yet acted upon
+
+**203 - Non-Authoritative Information**
+**204 - No Content**
+
+## 300-399: Redirection messages
+
+## 400-499: Client error responses
+
+**400 - Bad Request**
+
+The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+
+**401 - Unauthorized**
+
+Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
+
+**402 - Payment Required Experimental**
+
+This response code is reserved for future use. The initial aim for creating this code was using it for digital payment systems, however this status code is used very rarely and no standard convention exists.
+
+**403 - Forbidden**
+
+The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
+
+**404 - Not Found**
+
+The server cannot find the requested resource. In the browser, this means the URL is not recognized. In an API, this can also mean that the endpoint is valid but the resource itself does not exist. Servers may also send this response instead of 403 Forbidden to hide the existence of a resource from an unauthorized client. This response code is probably the most well known due to its frequent occurrence on the web.
+
+**409 - Conflict**
+
+This response is sent when a request conflicts with the current state of the server.
 
 The request could not be completed due to a conflict with the current state of the resource. This code is only allowed in situations where it is expected that the user might be able to resolve the conflict and resubmit the request. The response body SHOULD include enough information for the user to recognize the source of the conflict. Ideally, the response entity would include enough information for the user or user agent to fix the problem; however, that might not be possible and is not required.
 
 Conflicts are most likely to occur in response to a PUT request. For example, if versioning were being used and the entity being PUT included changes to a resource which conflict with those made by an earlier (third-party) request, the server might use the 409 response to indicate that it can't complete the request. In this case, the response entity would likely contain a list of the differences between the two versions in a format defined by the response Content-Type.
 
-## 500 - Server Error
+## 500-599: Server error responses
+
+**500 Internal Server Error**
+
+The server has encountered a situation it does not know how to handle.

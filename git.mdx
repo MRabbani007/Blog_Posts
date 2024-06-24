@@ -1,6 +1,6 @@
 ---
 title: 'Git - Version Control'
-date: '2024-04-28'
+date: '2024-05-03'
 tags: ['github','vercel','render']
 sortIndex: 12
 ---
@@ -14,33 +14,71 @@ sortIndex: 12
 ```
 git init
 ```
+
 2. check status
 ```
 git status
 ```
+
 3. Stage: add files
+When you stage changes, Git takes a snapshot of the files at that moment in time. This snapshot includes all of the changes you've made since the last commit.
+
+Staging changes allows you to carefully review your changes before committing them. You can stage changes in small chunks and commit them separately, or stage all changes and commit them together. 
+
 ```
 git add .
 ```
+
 4. Commit: commit current changes
+This creates a new snapshot of your repository with the changes you made.
+
 ``` 
 git commit -m "message"
 ```
-5. Push: Push to remote
+
+5. Add a remote repository
+By adding a remote repository, you establish a connection between your local repository and the remote repository, allowing you to push and pull changes between them.
+
 ```
-git push
+git remote add origin repository_URL
 ```
 
+6. Push: Push to remote
+This uploads your changes to a shared repository that others can access.
+
+```
+git push -u default_branch
+```
+
+7. Pull
+The git pull command fetches the latest changes made by other contributors from a remote repository and automatically merges them into the current branch.
+
 ## Collaboration
-Pull
-Branching
+1. Cloning
+Cloning creates a local copy of a remote repository, including all the files and history of the project.
+
 ```
-git branch
+git clone repository_URL
 ```
+
+2. Branching
+Create new branch
+
 ```
-git checkout
+git branch branch_name
 ```
-Merging
+
+To switch to the new branch
+```
+git checkout branch_name
+```
+
+or join the above steps:
+```
+git checkout -b branch_name
+```
+
+3. Merging
 ```
 git merge
 ```
@@ -49,3 +87,9 @@ git merge
 Restore
 Delete
 
+## Gitignore
+create a file ".gitignore" with the files and folders to be ignored
+
+Directory names (for example, node_modules/, dist/, build/)
+File extensions (for example, *.log, *.tmp, .env)
+Specific files (for example, secrets.txt, config.ini)

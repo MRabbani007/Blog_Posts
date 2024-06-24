@@ -89,8 +89,8 @@ Hooks are a new addition in React 16.8. They let developers use state and other 
 
 *Important:* useState, useEffect, useContext, useReducer, useMemo, useRef, useCallback
 
-*1. useState:* used for local data storage
-*2. useEffect*
+**1. useState:** used for local data storage
+**2. useEffect**
 The useEffect hook in React eliminates the side effect of using class based components. It is used as an alternative to componentDidUpdate() method. It allows you to handle lifecycle events and perform actions such as fetching data, subscribing to events, or manipulating the DOM.
 The useEffect hook accepts two arguments where the second argument is optional. 
 
@@ -108,15 +108,15 @@ useEffect(()=>{
 },[name])
 ```
 
-*3. useRef:* used to access the DOM element and the React element. They are used in cases where we want to read or change the value of a child component
+**3. useRef:** used to access the DOM element and the React element. They are used in cases where we want to read or change the value of a child component
 
-*4. useContext:* Allows you to consume context in functional components.
+**4. useContext:** Allows you to consume context in functional components.
 
-*5. useReducer:* Alternative to useState for managing more complex state logic. It accepts a reducer function and an initial state, returning the current state and a dispatch function to trigger state updates.
+**5. useReducer:** Alternative to useState for managing more complex state logic. It accepts a reducer function and an initial state, returning the current state and a dispatch function to trigger state updates.
 
-*6. useMemo:* The useMemo hook is used to memoize the result of a function. It takes a function and an array of dependencies and returns a memoized value. This is particularly useful when you have expensive computations or calculations that you want to avoid repeating unnecessarily.
+**6. useMemo:** The useMemo hook is used to memoize the result of a function. It takes a function and an array of dependencies and returns a memoized value. This is particularly useful when you have expensive computations or calculations that you want to avoid repeating unnecessarily.
 
-*7. useCallback:* The useCallback hook is used to memoize callbacks. It takes a callback function and an array of dependencies and returns a memoized callback. This is beneficial in scenarios where passing callbacks to child components might cause unnecessary re-renders.
+**7. useCallback:** The useCallback hook is used to memoize callbacks. It takes a callback function and an array of dependencies and returns a memoized callback. This is beneficial in scenarios where passing callbacks to child components might cause unnecessary re-renders.
 
 ```
 import React, { useState, useCallback } from 'react';
@@ -161,6 +161,7 @@ or
   <h2>Child-1</h2>   
   <p> Child-2</p>   
 </>
+```
 
 ### Data Fetching
 
